@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pedido de Namoro</title>
+  <!-- Inclua os arquivos CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f7e7f3;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    .card {
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #d03f67;
+    }
+
+    .message {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #6c757d;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: 30px;
+    }
+
+    .button-container .btn {
+      margin: 0 10px;
+      font-size: 18px;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .random-position {
+      position: relative;
+    }
+
+    .btn-success {
+      background-color: #ff6b6b;
+      border-color: #ff6b6b;
+    }
+
+    .btn-danger {
+      background-color: #5dcedc;
+      border-color: #5dcedc;
+      color: #fff;
+    }
+
+    .btn-success:hover, .btn-danger:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-danger.random-position {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+  <!-- Adicione a referência à fonte do Google Georgia -->
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card">
+      <h1 class="title">Quer namorar comigo?</h1>
+      <p class="message">:D</p>
+
+      <div class="button-container">
+        <button class="btn btn-success" onclick="aceitar()">Sim</button>
+        <button id="naoButton" class="btn btn-danger random-position" onclick="mudarPosicao()">Não</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inclua os arquivos JavaScript do Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <!-- Inclua a biblioteca jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#naoButton").click(function() {
+        mudarPosicao();
+      });
+    });
+
+    function aceitar() {
+      alert("Te amo gatinha <3");
+    }
+
+    function mudarPosicao() {
+      var buttonContainer = $(".button-container");
+      var naoButton = $("#naoButton");
+
+      var containerWidth = buttonContainer.width();
+      var containerHeight = buttonContainer.height();
+
+      var buttonWidth = naoButton.width();
+      var buttonHeight = naoButton.height();
+
+      var randomLeft = Math.floor(Math.random() * (containerWidth - buttonWidth));
+      var randomTop = Math.floor(Math.random() * (containerHeight - buttonHeight));
+
+      naoButton.css({ left: randomLeft + "px", top: randomTop + "px" });
+    }
+  </script>
+</body>
+</html>
